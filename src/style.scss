@@ -1,0 +1,256 @@
+@import 'inventory';
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: $font;
+}
+::-webkit-scrollbar {
+    width: 15px; /* Adjust the width as needed */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: gray; /* Change the background color */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(227, 16, 52); /* Change the thumb color */
+  }
+body{
+    background: map-get($cartbuggy, dark);
+}
+.main{
+    @include flexg(center);
+    height: 100vh;
+.box{
+    background-color: map-get($cartbuggy, darkblue);
+    width: 400px;
+    height: 600px;
+    border-radius: 10px;
+    transition: all .5s ease-in;
+    position: relative;
+ 
+> header{
+   margin: 15px 20px;
+   @include flexg('');
+   gap: 10px;
+   border: none;
+   height: 40px;
+   padding: 20px 15px;
+   border-radius: 5px;
+   box-shadow: 0 3px 5px black;
+   position: relative;
+.shopping{
+    color: white;
+    font-size: 20px;    
+}
+> h2{
+    color: white;
+    font-size: 20px;
+}
+.eye{
+    color: white;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 255px;
+    bottom: 5px;
+    cursor: pointer;
+}
+.toggle-dark{
+    position: relative;
+    left: 100px;
+    width: 50px;
+    height: 30px;
+    border: 2px solid white;
+    @include flexg('space-between');
+    border-radius: 20px;
+    padding: 0 3px;
+.circle-dark{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease;
+&:hover{
+    box-shadow: 0 0 10px white;
+}
+}
+}
+.toggle-light{
+    position: relative;
+    left: 100px;
+    width: 50px;
+    height: 30px;
+    border: 2px solid map-get($cartbuggy, darkblue );
+    @include flexg('space-between');
+    border-radius: 20px;
+    padding: 0 3px;
+    transition: all .5s ease;
+} 
+.circle-light{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background: map-get($cartbuggy, darkblue);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease;
+    margin-left: 20px;
+&:hover{
+    box-shadow: 0 0 10px map-get($cartbuggy, darkblue);
+}
+}
+}
+.inputs{
+    padding: 15px 20px;
+    @include flexg(center);
+    flex-direction: column;
+.search{
+    display: flex;
+input{
+    padding: 5px;
+    width: 250px;
+    height: 40px;
+    background-color: lighten($color: #000000, $amount: 40%);
+    color: white;
+    border: none;
+    outline: none;
+&:focus{
+    border: none;
+    }
+}
+input::placeholder{
+    color: lighten($color: #000000, $amount: 80%);
+}
+.button-cart{
+width: 60px;
+cursor: pointer;
+border: none;
+display: flex;
+align-items: center;
+justify-content: center;
+.cart-icon{
+    // color: map-get($cartbuggy, darkblue) !important;
+    width: 30px;
+    height: 30px;
+}
+}
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    height: 390px;
+    overflow-y: auto;
+.list-item{
+    display: flex;
+>li, input{
+    width: 190px;
+    margin-top: 5px;
+    height: 35px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color:rgb(34, 55, 90);
+    overflow-x: hidden;
+}
+> li{
+   font-size: 12px;
+   align-items: center;
+   display: flex;
+}
+ .edits{
+    background: rgb(247, 195, 5);
+    border: none;
+    outline: none;
+    width: 50px;
+    cursor: pointer;
+    height: 35px;
+    margin-top: 6px;
+.edit{
+    width: 50px;
+}
+}
+.trash{
+    background: rgb(202, 25, 41);
+    border: none;
+    outline: none;
+    width: 50px;
+    cursor: pointer;
+    height: 35px;
+    margin-top: 6px;
+}
+}
+}
+.buttons{
+    @include flexg("center");
+    padding: 25px;
+    gap: 10px;
+.clear{
+    width: 150px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: 700;
+}
+}
+}
+}
+.receipt{
+    position: absolute;
+    // background-color: map-get($cartbuggy, bluish);
+    width: 400px;
+    height: 270px;
+    top: 25px;
+    transition: transform .7s ease;
+ .header-rec{
+    margin: 12px 20px;
+    background-color: map-get($cartbuggy, darkblue);
+    padding: 8px 10px;
+    border-radius: 5px;
+> h2{
+    color: white;
+}
+}
+.text-receipt{
+    padding: 12px 13px;
+    @include flexg(center);
+    flex-direction: column;
+    gap: 10px;
+.add, .delete{
+    padding: 8px 10px;
+    border-radius: 5px;
+    width: 300px;
+    @include flexg("");
+    justify-content: space-between;
+>h2{
+    color: white;
+}
+}
+.delete{
+    background-color: rgb(247, 0, 0);
+}
+.add{
+    background-color: rgb(48, 90, 82);
+}
+.back{
+    margin-top: 25px;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    width: 130px;
+}
+}
+}
+}
