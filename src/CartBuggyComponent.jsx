@@ -8,6 +8,7 @@ export default function Components({ item, num, newItem, trashicon, isDeleted })
   let [decision, isDecision] = useState(true);
   function edits(){
    newItem(num.ids, edit);
+   isDecision(false);
   }
   return (
     <ul className="list-item">
@@ -21,9 +22,10 @@ export default function Components({ item, num, newItem, trashicon, isDeleted })
           edits();
         }
         else{
-          null
+          edits();
+          isDecision(true);
         }
-        isDecision(!decision);
+        // isDecision(!decision);
         }} className="edits">{decision ? <FaEdit className="edit"/> : <FaSave className="save"/>}</button>
        <button className="trash" onClick={() => isDeleted(num.ids)}>{trashicon}</button>
     </ul>
