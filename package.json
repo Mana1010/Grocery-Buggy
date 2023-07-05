@@ -3,17 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https//Mana1010.github.io/grocery-buggy/",
+  "homepage": "https//Mana1010.github.io/beshy-app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "predeploy" :  "npm run build",
-    "deploy" : "gh-pages -d dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1"
   },
